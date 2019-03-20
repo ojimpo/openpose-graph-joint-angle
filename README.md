@@ -1,1 +1,2 @@
 # openpose-graph-joint-angle
+OpenPoseから出力されるjsonファイルをPythonのライブラリ、numpyとmatplotlibを用いてグラフに描画する
