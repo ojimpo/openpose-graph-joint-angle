@@ -1,5 +1,6 @@
 import json
 import numpy as np
+from numpy import linalg as LA
 import matplotlib.pyplot as plt
 
 for json_file in ['kazuma_{:012}_keypoints.json'.format(i) for i in range(38)]:
