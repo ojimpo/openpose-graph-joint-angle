@@ -26,6 +26,8 @@ for json_file in ['kazuma_{:012}_keypoints.json'.format(i) for i in range(38)]:
         c = i / n
         a = np.rad2deg(np.arccos(np.clip(c, -1.0, 1.0)))
 
+        l_knee_joint_angle.append(a)
+
 json_file = open('sample.json', 'r')
 json_object = json.load(json_file)
 
