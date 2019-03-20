@@ -8,6 +8,7 @@ l_knee_joint_angle = []
 for json_file in ['kazuma_{:012d}_keypoints.json'.format(i) for i in range(38)]:
     with open(json_file) as f:
         json_object = json.load(f)
+
         l_hip_x = json_object.get('["people"][0]["pose_keypoints_2d"][36]', 0)
         l_hip_y = json_object.get('["people"][0]["pose_keypoints_2d"][37]', 0)
 
@@ -23,9 +24,12 @@ for json_file in ['kazuma_{:012d}_keypoints.json'.format(i) for i in range(38)]:
         i = np.inner(u, v)
         n = LA.norm(u) * LA.norm(v)
 
-        c = i / n
-        a = np.rad2deg(np.arccos(np.clip(c, -1.0, 1.0)))
+        if n != 0:
+                c = i / n
+                a = np.rad2deg(np.arccos(np.clip(c, -1.0, 1.0)))
+        else:
+                a = 0
 
         l_knee_joint_angle.append(a)
 
-len(l_knee_joint_angle)
+print(l_knee_joint_angle)
