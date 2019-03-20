@@ -10,8 +10,8 @@ l_knee_y = 337.153
 l_ankle_x = 198.88
 l_ankle_y = 387.174
 
-u = np.array([3, 4])
-v = np.array([-4, 3])
+u = np.array([l_hip_x - l_knee_x, l_hip_y - l_knee_y])
+v = np.array([l_ankle_x - l_knee_x, l_ankle_y - l_knee_y])
 
 i = np.inner(u, v)
 n = LA.norm(u) * LA.norm(v)
