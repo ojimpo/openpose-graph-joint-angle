@@ -5,18 +5,17 @@ import matplotlib.pyplot as plt
 
 l_knee_joint_angle = []
 
-for json_file in ['kazuma_{:012d}_keypoints.json'.format(i) for i in range(38)]:
-    with open(json_file) as f:
+with open('kazuma_000000000034_keypoints.json') as f:
         json_object = json.load(f)
 
-        l_hip_x = json_object.get('["people"][0]["pose_keypoints_2d"][36]', 0)
-        l_hip_y = json_object.get('["people"][0]["pose_keypoints_2d"][37]', 0)
+        l_hip_x = json_object.get('["people"][0]["pose_keypoints_2d"][36]', 1)
+        l_hip_y = json_object.get('["people"][0]["pose_keypoints_2d"][37]', 1)
 
-        l_knee_x = json_object.get('["people"][0]["pose_keypoints_2d"][39]', 0)
-        l_knee_y = json_object.get('["people"][0]["pose_keypoints_2d"][40]', 0)
+        l_knee_x = json_object.get('["people"][0]["pose_keypoints_2d"][39]', 1)
+        l_knee_y = json_object.get('["people"][0]["pose_keypoints_2d"][40]', 1)
 
-        l_ankle_x = json_object.get('["people"][0]["pose_keypoints_2d"][42]', 0)
-        l_ankle_y = json_object.get('["people"][0]["pose_keypoints_2d"][43]', 0)
+        l_ankle_x = json_object.get('["people"][0]["pose_keypoints_2d"][42]', 1)
+        l_ankle_y = json_object.get('["people"][0]["pose_keypoints_2d"][43]', 1)
 
         u = np.array([l_hip_x - l_knee_x, l_hip_y - l_knee_y])
         v = np.array([l_ankle_x - l_knee_x, l_ankle_y - l_knee_y])
@@ -33,3 +32,6 @@ for json_file in ['kazuma_{:012d}_keypoints.json'.format(i) for i in range(38)]:
         l_knee_joint_angle.append(a)
 
 print(l_knee_joint_angle)
+print(l_hip_x, l_hip_y)
+print(l_knee_x, l_knee_y)
+print(l_ankle_x, l_ankle_y)
