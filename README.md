@@ -1,2 +1,2 @@
 # openpose-graph-joint-angle
-OpenPoseから出力されるjsonファイルをPythonのライブラリ、numpyとmatplotlibを用いてグラフに描画する
+OpenPoseから出力されるjsonファイルから関節角度を計算してPythonのライブラリ、numpyとmatplotlibを用いてグラフに描画する
