@@ -19,14 +19,14 @@ for json_file in ['kazuma_{:012d}_keypoints.json'.format(i) for i in range(38)]:
         if json_object_length == 0:
                 a = 0
         else:
-                l_hip_x = json_object['people'][0]['pose_keypoints_2d'][36]
-                l_hip_y = json_object['people'][0]['pose_keypoints_2d'][37]
+                l_hip_x = json_object['people'][0]['pose_keypoints_2d'][point_x(12)]
+                l_hip_y = json_object['people'][0]['pose_keypoints_2d'][point_y(12)]
 
-                l_knee_x = json_object['people'][0]['pose_keypoints_2d'][39]
-                l_knee_y = json_object['people'][0]['pose_keypoints_2d'][40]
+                l_knee_x = json_object['people'][0]['pose_keypoints_2d'][point_x(13)]
+                l_knee_y = json_object['people'][0]['pose_keypoints_2d'][point_y(13)]
 
-                l_ankle_x = json_object['people'][0]['pose_keypoints_2d'][42]
-                l_ankle_y = json_object['people'][0]['pose_keypoints_2d'][43]
+                l_ankle_x = json_object['people'][0]['pose_keypoints_2d'][point_x(14)]
+                l_ankle_y = json_object['people'][0]['pose_keypoints_2d'][point_y(13)]
 
                 u = np.array([l_hip_x - l_knee_x, l_hip_y - l_knee_y])
                 v = np.array([l_ankle_x - l_knee_x, l_ankle_y - l_knee_y])
@@ -42,7 +42,7 @@ for json_file in ['kazuma_{:012d}_keypoints.json'.format(i) for i in range(38)]:
 
         l_knee_joint_angle.append(a)
 
-# print(l_knee_joint_angle)
+print(l_knee_joint_angle)
 
 # plt.title('Angle of Left Knee Joint')
 # plt.xlabel('frame')
