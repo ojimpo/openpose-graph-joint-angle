@@ -38,9 +38,9 @@ for json_file in ['kazuma_{:012d}_keypoints.json'.format(i) for i in range(38)]:
 
 print(l_knee_joint_angle)
 
-plt.title('Angle of Left Knee Joint')
-plt.xlabel('frame')
-plt.ylabel('degrees')
-plt.plot(l_knee_joint_angle)
-plt.grid()
-plt.show()
+# plt.title('Angle of Left Knee Joint')
+# plt.xlabel('frame')
+# plt.ylabel('degrees')
+# plt.plot(l_knee_joint_angle)
+# plt.grid()
+# plt.show()
