@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 l_knee_joint_angle = []
 
-for json_file in glob.glob(''):
+for json_file in glob.glob('*_keypoints.json'):
 
 
 for json_file in ['kazuma_{:012d}_keypoints.json'.format(i) for i in range(38)]:
