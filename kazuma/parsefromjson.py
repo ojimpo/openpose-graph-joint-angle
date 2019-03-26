@@ -1,11 +1,14 @@
 import json
+import glob
+from natsort import natsorted
+import re
 import numpy as np
 from numpy import linalg as LA
 import matplotlib.pyplot as plt
 
 l_knee_joint_angle = []
 
-for json_file in glob.glob('*_keypoints.json'):
+for json_file in natsorted(glob.glob('*_keypoints.json')):
     with open(json_file) as f:
         json_object = json.load(f)
         json_object_length = len(json_object['people'])
