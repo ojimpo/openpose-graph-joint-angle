@@ -6,6 +6,12 @@ import numpy as np
 from numpy import linalg as LA
 import matplotlib.pyplot as plt
 
+def point_x(number):
+        return number * 3 + 1
+
+def point_y(number):
+        return number * 3 + 2
+
 l_knee_joint_angle = []
 
 for json_file in natsorted(glob.glob('*_keypoints.json')):
