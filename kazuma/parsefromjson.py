@@ -6,35 +6,29 @@ import numpy as np
 from numpy import linalg as LA
 import matplotlib.pyplot as plt
 
-# angle_results = []
+angle_results = []
 
-# def joint_angle(a, b, c):
-#         def point_x(number):
-#                 return number * 3 + 1
+def joint_angle(point1, point2, point3):
+        point1_x = json_object['people'][0]['pose_keypoints_2d'][point_x(point1)]
+        point1_y = json_object['people'][0]['pose_keypoints_2d'][point_y(point1)]
 
-#         def point_y(number):
-#                 return number * 3 + 2
+        point2_x = json_object['people'][0]['pose_keypoints_2d'][point_x(point2)]
+        point2_y = json_object['people'][0]['pose_keypoints_2d'][point_y(point2)]
 
-#         point_a_x = json_object['people'][0]['pose_keypoints_2d'][point_x(a)]
-#         point_a_y = json_object['people'][0]['pose_keypoints_2d'][point_y(a)]
+        point3_x = json_object['people'][0]['pose_keypoints_2d'][point_x(point3)]
+        point3_y = json_object['people'][0]['pose_keypoints_2d'][point_y(point3)]
 
-#         point_b_x = json_object['people'][0]['pose_keypoints_2d'][point_x(b)]
-#         point_b_y = json_object['people'][0]['pose_keypoints_2d'][point_y(b)]
+        u = np.array([point1_x - point2_x, point1_y - point2_y])
+        v = np.array([point3_x - point2_x, point3_y - point2_y])
 
-#         point_c_x = json_object['people'][0]['pose_keypoints_2d'][point_x(c)]
-#         point_c_y = json_object['people'][0]['pose_keypoints_2d'][point_y(c)]
+        i = np.inner(u, v)
+        n = LA.norm(u) * LA.norm(v)
 
-#         u = np.array([point_a_x - point_b_x, point_a_y - point_b_y])
-#         v = np.array([point_c_x - point_b_x, point_c_y - point_b_y])
-
-#         i = np.inner(u, v)
-#         n = LA.norm(u) * LA.norm(v)
-
-#         if n == 0:
-#                 a = 0
-#         else:
-#                 c = i / n
-#                 a = np.rad2deg(np.arccos(np.clip(c, -1.0, 1.0)))
+        if n == 0:
+                a = 0
+        else:
+                c = i / n
+                a = np.rad2deg(np.arccos(np.clip(c, -1.0, 1.0)))
 
 def point_x(number):
         return number * 3 + 1
