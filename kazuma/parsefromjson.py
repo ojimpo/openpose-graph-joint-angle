@@ -36,6 +36,8 @@ def joint_angle(point1, point2, point3):
                 c = i / n
                 a = np.rad2deg(np.arccos(np.clip(c, -1.0, 1.0)))
 
+        return a
+
 l_knee_joint_angle = []
 
 for json_file in natsorted(glob.glob('*_keypoints.json')):
@@ -46,7 +48,6 @@ for json_file in natsorted(glob.glob('*_keypoints.json')):
         if json_object_length == 0:
                 a = 0
         else:
-
                 # joint_angle(12, 13, 14)
 
                 p1_x = json_object['people'][0]['pose_keypoints_2d'][point_x(12)]
@@ -71,9 +72,10 @@ for json_file in natsorted(glob.glob('*_keypoints.json')):
                         a = np.rad2deg(np.arccos(np.clip(c, -1.0, 1.0)))
 
         l_knee_joint_angle.append(a)
+        print(json_object_length)
+        print(json_object)
 
 print(l_knee_joint_angle)
-print(json_object_length)
 
 # plt.title('Angle of Left Knee Joint')
 # plt.xlabel('frame')
