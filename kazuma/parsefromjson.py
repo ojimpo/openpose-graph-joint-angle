@@ -41,20 +41,23 @@ def joint_angle(point1, point2, point3):
         return a
 
 l_knee_joint_angle = []
+r_knee_joint_angle = []
 
 for json_file in natsorted(glob.glob('*_keypoints.json')):
     with open(json_file) as f:
         json_object = json.load(f)
         json_object_length = len(json_object['people'])
 
-        angle = joint_angle(point1 = 12, point2 = 13, point3 = 14)
-        l_knee_joint_angle.append(angle)
+        l_knee_joint_angle.append(joint_angle(point1 = 12, point2 = 13, point3 = 14))
+        r_knee_joint_angle.append(joint_angle(point1 = 9, point2 = 10, point3 = 11))
 
 print(l_knee_joint_angle)
+print(r_knee_joint_angle)
 
-# plt.title('Angle of Left Knee Joint')
-# plt.xlabel('frame')
-# plt.ylabel('degrees')
-# plt.plot(l_knee_joint_angle)
-# plt.grid()
-# plt.show()
+plt.title('Angles of Knee Joints')
+plt.xlabel('frame')
+plt.ylabel('degrees')
+plt.plot(l_knee_joint_angle)
+plt.plot(r_knee_joint_angle)
+plt.grid()
+plt.show()
