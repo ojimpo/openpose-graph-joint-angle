@@ -13,6 +13,7 @@ def point_y(number):
         return (number * 3) + 1
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # json_object = json.load(f)
 
 l_knee_joint_angle = []
@@ -47,6 +48,11 @@ def joint_angle(point1, point2, point3):
 # def joint_angle(point1, point2, point3):
 #         p1_x = json_object['people'][0]['pose_keypoints_2d'][point_x(point1)]
 #         p1_y = json_object['people'][0]['pose_keypoints_2d'][point_y(point1)]
+=======
+def joint_angle(point1, point2, point3):
+        p1_x = json_object['people'][0]['pose_keypoints_2d'][point_x(point1)]
+        p1_y = json_object['people'][0]['pose_keypoints_2d'][point_y(point1)]
+>>>>>>> parent of 3120cf4... Comment out defs(it works)
 =======
 def joint_angle(point1, point2, point3):
         p1_x = json_object['people'][0]['pose_keypoints_2d'][point_x(point1)]
