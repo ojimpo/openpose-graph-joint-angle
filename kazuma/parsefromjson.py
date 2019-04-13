@@ -12,11 +12,11 @@ def point_x(number):
 def point_y(number):
         return (number * 3) + 1
 
-json_object = json.load(f)
+# json_object = json.load(f)
 
-def joint_angle(name, point1,point2, point3):
-        name = []
+l_knee_joint_angle = []
 
+def joint_angle(point1, point2, point3):
         p1_x = json_object['people'][0]['pose_keypoints_2d'][point_x(point1)]
         p1_y = json_object['people'][0]['pose_keypoints_2d'][point_y(point1)]
 
@@ -40,7 +40,7 @@ def joint_angle(name, point1,point2, point3):
 
         return a
 
-        name.append(a)
+        l_knee_joint_angle.append(a)
 
 
 # def joint_angle(point1, point2, point3):
@@ -71,12 +71,13 @@ def joint_angle(name, point1,point2, point3):
 
 for json_file in natsorted(glob.glob('*_keypoints.json')):
     with open(json_file) as f:
+        json_object = json.load(f)
         json_object_length = len(json_object['people'])
 
         if json_object_length == 0:
                 a = 0
         else:
-                joint_angle(l_knee_joint_angle, 12, 13, 14)
+                joint_angle(12, 13, 14)
 
                 # point1 = 12
                 # point2 = 13
