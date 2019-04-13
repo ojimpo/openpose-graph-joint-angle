@@ -47,7 +47,8 @@ for json_file in natsorted(glob.glob('*_keypoints.json')):
         json_object = json.load(f)
         json_object_length = len(json_object['people'])
 
-        l_knee_joint_angle.append(joint_angle(point1 = 12, point2 = 13, point3 = 14))
+        angle = joint_angle(point1 = 12, point2 = 13, point3 = 14)
+        l_knee_joint_angle.append(angle)
 
 print(l_knee_joint_angle)
 
