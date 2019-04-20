@@ -6,6 +6,10 @@ import numpy as np
 from numpy import linalg as LA
 import matplotlib.pyplot as plt
 
+result = {}
+
+def make_list(joint)
+
 def joint_angle(point1, point2, point3):
         def point_x(number):
                 return number * 3
