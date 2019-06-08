@@ -5,6 +5,7 @@ import re
 import numpy as np
 from numpy import linalg as LA
 import matplotlib.pyplot as plt
+import csv
 
 def joint_angle(point1, point2, point3):
         def point_x(number):
@@ -54,6 +55,10 @@ for json_file in natsorted(glob.glob('*_keypoints.json')):
         l_knee_joint_angle.append(joint_angle(point1 = 12, point2 = 13, point3 = 14))
         r_elbow_joint_angle.append(joint_angle(point1 = 2, point2 = 3, point3 = 4))
         l_elbow_joint_angle.append(joint_angle(point1 = 5, point2 = 6, point3 = 7))
+
+with open('l_knee_angles.csv', 'w') as f:
+    writer = csv.writer(f, lineterminator='\n')
+    writer.writerow(l_knee_joint_angle)
 
 plt.title('Joint Angles')
 plt.xlabel('frames')
