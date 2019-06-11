@@ -1,5 +1,6 @@
 import json
 import glob
+import csv
 from natsort import natsorted
 import re
 import numpy as np
@@ -55,13 +56,17 @@ for json_file in natsorted(glob.glob('*_keypoints.json')):
         r_elbow_joint_angle.append(joint_angle(point1 = 2, point2 = 3, point3 = 4))
         l_elbow_joint_angle.append(joint_angle(point1 = 5, point2 = 6, point3 = 7))
 
-plt.title('Joint Angles')
-plt.xlabel('frames')
-plt.ylabel('degrees')
-plt.plot(r_knee_joint_angle, label = 'R_Knee')
-plt.plot(l_knee_joint_angle, label = 'L_Knee')
-plt.plot(r_elbow_joint_angle, label = 'R_Elbow')
-plt.plot(l_elbow_joint_angle, label = 'L_Elbow')
-plt.grid()
-plt.legend(loc = 'upper left')
-plt.show()
+with open('kazuma_r_knee.csv', 'w') as f:
+    writer = csv.writer(f, lineterminator='\n') # 改行コード（\n）を指定しておく
+    writer.writerow(r_knee_joint_angle)     # list（1次元配列）の場合
+
+# plt.title('Joint Angles')
+# plt.xlabel('frames')
+# plt.ylabel('degrees')
+# plt.plot(r_knee_joint_angle, label = 'R_Knee')
+# plt.plot(l_knee_joint_angle, label = 'L_Knee')
+# plt.plot(r_elbow_joint_angle, label = 'R_Elbow')
+# plt.plot(l_elbow_joint_angle, label = 'L_Elbow')
+# plt.grid()
+# plt.legend(loc = 'upper left')
+# plt.show()
