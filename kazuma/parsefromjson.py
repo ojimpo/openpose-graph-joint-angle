@@ -56,9 +56,21 @@ for json_file in natsorted(glob.glob('*_keypoints.json')):
         r_elbow_joint_angle.append(joint_angle(point1 = 2, point2 = 3, point3 = 4))
         l_elbow_joint_angle.append(joint_angle(point1 = 5, point2 = 6, point3 = 7))
 
-with open('kazuma_r_knee.csv', 'w') as f:
-    writer = csv.writer(f, lineterminator='\n') # 改行コード（\n）を指定しておく
-    writer.writerow(r_knee_joint_angle)     # list（1次元配列）の場合
+with open('r_knee.csv', 'w') as f:
+    writer = csv.writer(f, lineterminator='\n')
+    writer.writerow(r_knee_joint_angle)
+
+with open('l_knee.csv', 'w') as f:
+    writer = csv.writer(f, lineterminator='\n')
+    writer.writerow(l_knee_joint_angle)
+
+with open('r_elbow.csv', 'w') as f:
+    writer = csv.writer(f, lineterminator='\n')
+    writer.writerow(r_elbow_joint_angle)
+
+with open('l_elbow.csv', 'w') as f:
+    writer = csv.writer(f, lineterminator='\n')
+    writer.writerow(l_elbow_joint_angle)
 
 # plt.title('Joint Angles')
 # plt.xlabel('frames')
